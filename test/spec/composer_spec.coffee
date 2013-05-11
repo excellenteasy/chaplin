@@ -218,6 +218,11 @@ define [
 
       mediator.publish 'dispatcher:dispatch'
 
+    it 'should throw for invalid invocations', ->
+      expect(->
+        mediator.publish '!composer:compose', 'spy', null
+      ).to.throwError()
+
     # disposal
     # --------
 
