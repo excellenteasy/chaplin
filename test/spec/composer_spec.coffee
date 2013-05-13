@@ -222,6 +222,9 @@ define [
       expect(->
         mediator.publish '!composer:compose', 'spy', null
       ).to.throwError()
+      expect(->
+        mediator.publish '!composer:compose', compose: /a/, check: ''
+      ).to.throwError()
 
     # disposal
     # --------

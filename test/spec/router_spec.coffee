@@ -570,6 +570,13 @@ define [
           params, options, callbackSpy
         expect(callbackSpy).was.calledWith false
 
+      it 'should s false to the callback when no named route was found', ->
+        callbackSpy = sinon.spy()
+        params = {}
+        mediator.publish '!router:routeByName', 'phonebook',
+          params, callbackSpy
+        expect(callbackSpy).was.calledWith false
+
     describe 'Changing the URL', ->
 
       it 'should listen to the !router:changeURL event', ->
